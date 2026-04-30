@@ -26,6 +26,13 @@ def pozdrav_post():
 
 	else:
 		zprava = "Nesprávné heslo!"
+	jmeno_zadane= True
+	if not name:
+		jemno_zadane = False
+	if name and len(name) >= 50:
+		jmeno_zadane = False
+	else:
+		name = name
 
 	return render_template("pozdrav_post.html", date=date, name=name, surname=surname, zprava=zprava)
 
