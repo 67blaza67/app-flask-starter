@@ -19,6 +19,16 @@ def pozdrav_post():
 
 	name=request.form.get("name")
 	surname=request.form.get("surname")
-	return render_template("pozdrav_post.html", date=date, name=name, surname=surname)
+	heslo=request.form.get("password")
+	spravne_heslo = "tajneheslo"
+	if heslo == spravne_heslo:
+		zprava = "Správné heslo!"
+
+	else:
+		zprava = "Nesprávné heslo!"
+
+	return render_template("pozdrav_post.html", date=date, name=name, surname=surname, zprava=zprava)
+
+
 if __name__=="__main__":
 	app.run(debug=True)

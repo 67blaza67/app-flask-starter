@@ -10,10 +10,15 @@
 	{% if name %}
 		<strong>{{ name }} {{ surname }}, rád tě vidím!</strong><hr>
 	{% endif %}
+	{% if zprava %}
+		<p>{{ zprava }}</p>
+	{% endif %}
 
 	Řekni mi své jméno a já tě pozdravím!
 	<form method="POST">
-		<input type="text" name="name" placeholder="Zadej své jméno"> <input type="text" name="surname" placeholder="Zadej své příjmení">
+		<input type="text" name="name" placeholder="Zadej své jméno"> 
+		<input type="text" name="surname" placeholder="Zadej své příjmení"> 
+		<input type="password" name="password" placeholder="Zadej své heslo">
 		<button type="submit">Pozdrav mě!</button>
 	</form>
 
