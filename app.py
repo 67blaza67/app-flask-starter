@@ -12,13 +12,13 @@ def index():
 	surname=request.args.get("surname")
 	return render_template("page.html", date=date, name=name, surname=surname)
 
-@app.route("/pozdrav-post", methods=["POST"],methods=["GET"])
+@app.route("/pozdrav-post", methods=["POST", "GET"])
 def pozdrav_post():
 	#aktuální datum
 	date = datetime.now().strftime("%d. %m. %Y")
 
 	name=request.form.get("name")
 	surname=request.form.get("surname")
-	return render_template("page.html", date=date, name=name, surname=surname)
+	return render_template("pozdrav_post.html", date=date, name=name, surname=surname)
 if __name__=="__main__":
 	app.run(debug=True)
