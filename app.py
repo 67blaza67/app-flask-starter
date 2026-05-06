@@ -21,18 +21,16 @@ def pozdrav_post():
 	surname=request.form.get("surname")
 	heslo=request.form.get("password")
 	spravne_heslo = "tajneheslo"
-	if heslo == spravne_heslo:
-		zprava = "Správné heslo!"
 
+	if not name or not name.strip():
+		zprava = "Nezadali jste jméno!"
+	elif len(name) >= 50:
+		zprava = "Jméno je příliš dlouhé!"
 	else:
-		zprava = "Nesprávné heslo!"
-	jmeno_zadane= True
-	if not name:
-		jemno_zadane = False
-	if name and len(name) >= 50:
-		jmeno_zadane = False
-	else:
-		name = name
+		if heslo == spravne_heslo:
+			zprava = "Správné heslo!"
+		else:
+			zprava = "Nesprávné heslo!"
 
 	return render_template("pozdrav_post.html", date=date, name=name, surname=surname, zprava=zprava)
 
